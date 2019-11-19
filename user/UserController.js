@@ -6,7 +6,7 @@ const LoginService = require('../auth/LoginService');
  * @param jsonParser
  * @param conn - Database connection
  */
-module.exports.controller = function (app, service, {jsonParser, conn}) {
+module.exports.controller = function (app, service, {jsonParser}) {
     app.use(['/users*'], (req, res, next) => LoginService.authorize(req, res, next));
 
     /**

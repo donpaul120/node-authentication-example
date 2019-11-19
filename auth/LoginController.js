@@ -5,7 +5,7 @@
  * @param jsonParser
  * @param conn - Database connection
  */
-module.exports.controller = function (app, service, {jsonParser, conn}) {
+module.exports.controller = function (app, service, {jsonParser}) {
     app.post('/login', jsonParser, (req, res) => {
         return service.login(req.body).then(({data, code=200}) => {
             res.status(code).send(data);

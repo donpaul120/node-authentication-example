@@ -22,8 +22,8 @@ const LoginService = require('./auth/LoginService');
 const UserService = require('./user/UserService');
 const UserRepo = require('./user/UserRepo');
 
-require('./auth/LoginController').controller(app, new LoginService(new UserRepo(conn)), {jsonParser, conn});
-require('./user/UserController').controller(app, new UserService(new UserRepo(conn)), {jsonParser, conn});
+require('./auth/LoginController').controller(app, new LoginService(new UserRepo(conn)), {jsonParser});
+require('./user/UserController').controller(app, new UserService(new UserRepo(conn)), {jsonParser});
 
 
 
