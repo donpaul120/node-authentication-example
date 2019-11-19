@@ -25,14 +25,12 @@ class LoginService {
          * If the user is null or the password doesn't match we simply return invalid login response.
          */
         if (!user || PasswordUtil.equals(user.password, password)) {
-            console.log("Test", ErrorUtil.InvalidLogin);
             return Promise.reject(ErrorUtil.InvalidLogin);
         }
 
         const session = SessionManager.Builder().setUser(user).setExpiryTime(120000).build();
 
         //TODO we can use a response builder or an util
-        console.log(session.getToken());
         return {
             status: 'success',
             token: session.getToken(),
@@ -43,7 +41,6 @@ class LoginService {
     //serves as middle ware
      static async authorize(req, res, next) {
         const token = req.header('x-andela-token');
-        console.log(token);
         if (!token) return res.status(401).send(ErrorUtil.UnAuthorizedAccess);
         req.session =  await SessionManager.Validator.validate(token).catch(err => {
             //We can equally check if the error is a bad json token etc
