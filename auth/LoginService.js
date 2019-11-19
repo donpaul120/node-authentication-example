@@ -7,7 +7,7 @@ class LoginService {
 
     constructor(repo) {
         this.validator = new LoginValidator();
-        this.authRepo = repo;
+        this.userRepo = repo;
     }
 
     async login(body = {}) {
@@ -19,7 +19,7 @@ class LoginService {
         const {username, password} = body;
 
         //check
-        const user = await this.authRepo.findByUsername(username).catch(err=> Promise.reject({status:'fail', err, code:500}));
+        const user = await this.userRepo.findByUsername(username).catch(err=> Promise.reject({status:'fail', err, code:500}));
 
         /*
          * If the user is null or the password doesn't match we simply return invalid login response.
