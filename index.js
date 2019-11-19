@@ -2,7 +2,6 @@ require('dotenv').config();
 
 const express = require('express');
 const bodyParser = require('body-parser');
-// const urlencodedParser = bodyParser.urlencoded({extended: false, limit: '5mb'});
 const jsonParser = bodyParser.json();
 
 const app = express();
