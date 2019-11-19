@@ -20,10 +20,10 @@ const conn = require('knex')({
 //Service and Repo Declaration
 const LoginService = require('./auth/LoginService');
 const UserService = require('./user/UserService');
-const AuthRepo = require('./user/UserRepo');
+const UserRepo = require('./user/UserRepo');
 
-require('./auth/LoginController').controller(app, new LoginService(new AuthRepo(conn)), {jsonParser, conn});
-require('./user/UserController').controller(app, new UserService(new AuthRepo(conn)), {jsonParser, conn});
+require('./auth/LoginController').controller(app, new LoginService(new UserRepo(conn)), {jsonParser, conn});
+require('./user/UserController').controller(app, new UserService(new UserRepo(conn)), {jsonParser, conn});
 
 
 
