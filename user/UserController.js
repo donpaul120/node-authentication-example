@@ -27,7 +27,7 @@ module.exports.controller = function (app, service, {jsonParser, conn}) {
     app.get('/users/:id', jsonParser, (req, res) => {
         return service.getUser(req.params['id'], req['session']).then(({data, code = 200}) => {
             return res.status(code).send(data)
-        }).catch(({err, code}) => {
+        }).catch(({err, code=500}) => {
             return res.status(code).send(err);
         });
     });

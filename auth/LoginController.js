@@ -7,10 +7,9 @@
  */
 module.exports.controller = function (app, service, {jsonParser, conn}) {
     app.post('/login', jsonParser, (req, res) => {
-        console.log(req.body);
-        return service.login(req.body).then(({data, code}) => {
+        return service.login(req.body).then(({data, code=200}) => {
             res.status(code).send(data);
-        }).catch(({err, code}) => {
+        }).catch(({err, code=500}) => {
             res.status(code).send(err);
         });
     });
