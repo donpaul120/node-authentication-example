@@ -13,7 +13,6 @@ module.exports.controller = function (app, service, {jsonParser, conn}) {
      * creates a new user
      */
     app.post('/users', jsonParser, (req, res) => {
-        console.log(req.body);
         return service.createUser(req.body).then(({data, code = 200}) => {
             return res.status(code).send(data);
         }).catch(({err, code = 500}) => {

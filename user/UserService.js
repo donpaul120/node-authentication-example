@@ -20,9 +20,6 @@ class UserService {
         //check
         const user = await this.userRepo.findByUsername(username);
 
-        /*
-         * If the user is null or the password doesn't match we simply return invalid login response.
-         */
         if (user) return Promise.reject(ErrorUtil.RecordAlreadyExist(`username '${username}' already exist`));
 
         //Ideally we'd use a user model and create user

@@ -17,7 +17,6 @@ class Validator {
     }
 
     validate(data = {}) {
-        if (!this.rules()) return true;
         return new ValidatorJS(data, this.rules(), this.customError());
     }
 
