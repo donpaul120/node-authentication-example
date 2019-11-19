@@ -1,4 +1,4 @@
-const LoginValidator = require('../auth/LoginValidator');
+const LoginValidator = require('../modules/auth/LoginValidator');
 
 it("Should fail if the password is less than 5", ()=>{
     //Arrange

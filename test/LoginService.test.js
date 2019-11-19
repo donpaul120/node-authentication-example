@@ -1,5 +1,5 @@
 require('dotenv').config();
-const LoginService = require('../auth/LoginService');
+const LoginService = require('../modules/auth/LoginService');
 
 
 it("Should fail if the login credentials are invalid",  function(){

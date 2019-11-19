@@ -1,4 +1,4 @@
-const AppRepo = require('../core/AppRepo');
+const AppRepo = require('../../core/AppRepo');
 
 class UserRepo extends AppRepo {
 

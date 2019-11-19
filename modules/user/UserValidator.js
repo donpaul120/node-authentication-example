@@ -1,4 +1,4 @@
-const Validator = require('../core/Validator');
+const Validator = require('../../core/Validator');
 
 //min length 5, max 8
 //contain alpha-numeric with atleast one symbol
@@ -16,14 +16,15 @@ class LoginValidator extends Validator {
     rules() {
         return {
             'password': ['required', 'min:5', 'max:8', 'regex:/^(?=.*[A-Za-z])(?=.*?[#?!@$%^&*-]).{5,}$/'],
-            'username': 'required|email'
+            'username': 'required|email',
+            'first_name':'string'
         }
     }
 
     customError() {
         return {
-            'regex.password': "Invalid username or password",
-            'email.username': "Invalid username or password"
+            'regex.password': "Password must be between a minimum of 5 and a maximum of 8 with at-least one special character",
+            'email.username': "Username must be a valid email address"
         }
     }
 

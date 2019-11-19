@@ -1,5 +1,5 @@
 require('dotenv').config();
-const UserService = require('../user/UserService');
+const UserService = require('../modules/user/UserService');
 
 
 it("Should fail if the user details doesn't match the criteria",  function(){

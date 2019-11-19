@@ -1,7 +1,7 @@
 const LoginValidator = require('./LoginValidator');
-const ErrorUtil = require('../core/ErrorUtils');
-const PasswordUtil = require('../core/PasswordUtil');
-const SessionManager = require('../core/SessionManager');
+const ErrorUtil = require('../../core/ErrorUtils');
+const PasswordUtil = require('../../core/PasswordUtil');
+const SessionManager = require('../../core/SessionManager');
 
 class LoginService {
 

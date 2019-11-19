@@ -17,12 +17,12 @@ const conn = require('knex')({
 });
 
 //Service and Repo Declaration
-const LoginService = require('./auth/LoginService');
-const UserService = require('./user/UserService');
-const UserRepo = require('./user/UserRepo');
+const LoginService = require('./modules/auth/LoginService');
+const UserService = require('./modules/user/UserService');
+const UserRepo = require('./modules/user/UserRepo');
 
-require('./auth/LoginController').controller(app, new LoginService(new UserRepo(conn)), {jsonParser});
-require('./user/UserController').controller(app, new UserService(new UserRepo(conn)), {jsonParser});
+require('./modules/auth/LoginController').controller(app, new LoginService(new UserRepo(conn)), {jsonParser});
+require('./modules/user/UserController').controller(app, new UserService(new UserRepo(conn)), {jsonParser});
 
 
 

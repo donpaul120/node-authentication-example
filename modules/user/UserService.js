@@ -1,6 +1,6 @@
 const UserValidator = require('./UserValidator');
-const ErrorUtil = require('../core/ErrorUtils');
-const PasswordUtil = require('../core/PasswordUtil');
+const ErrorUtil = require('../../core/ErrorUtils');
+const PasswordUtil = require('../../core/PasswordUtil');
 
 class UserService {
 
