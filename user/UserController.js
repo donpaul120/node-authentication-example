@@ -14,9 +14,9 @@ module.exports.controller = function (app, service, {jsonParser, conn}) {
      */
     app.post('/users', jsonParser, (req, res) => {
         console.log(req.body);
-        return service.createUser(req.body).then(({data, code=200}) => {
+        return service.createUser(req.body).then(({data, code = 200}) => {
             return res.status(code).send(data);
-        }).catch(({err, code=500}) => {
+        }).catch(({err, code = 500}) => {
             return res.status(code).send(err);
         });
     });
@@ -26,10 +26,10 @@ module.exports.controller = function (app, service, {jsonParser, conn}) {
      * Fetches a user
      */
     app.get('/users/:id', jsonParser, (req, res) => {
-        return service.getUser(req.params['id'], req['session']).then(data => {
-
-        }).catch(err => {
-
+        return service.getUser(req.params['id'], req['session']).then(({data, code = 200}) => {
+            return res.status(code).send(data)
+        }).catch(({err, code}) => {
+            return res.status(code).send(err);
         });
     });
 };
